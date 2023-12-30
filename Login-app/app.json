@@ -1,6 +1,14 @@
 {
   "expo": {
     "name": "Login-app",
-    "slug": "Login-app"
+    "slug": "Login-app",
+    "extra": {
+      "eas": {
+        "projectId": "5cece96d-7709-43a5-89a6-abe390a73a0b"
+      }
+    },
+    "android": {
+      "package": "com.nithinkumar.s.Loginapp"
+    }
   }
 }
