@@ -1,4 +1,4 @@
-# Reanimated example
+ 
 
 <p>
   <!-- iOS -->
