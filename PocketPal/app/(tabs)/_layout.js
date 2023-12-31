@@ -2,25 +2,40 @@
 import { Tabs } from 'expo-router'
 import { Ionicons, FontAwesome5  } from '@expo/vector-icons';
 import { Image } from 'react-native';
+import customColors from '../../assets/styles/colors'; 
 
 const HomeIcon = () => (
     <Image
-      source={require('../../assets/icons/home.png')} // Adjust the path accordingly
-      style={{ width: 24, height: 24 }} // Adjust the size as needed
+      source={require('../../assets/icons/house.png')} // Adjust the path accordingly
+      style={{ width: 40, height: 40 }} // Adjust the size as needed
     />
   );
 
 const ExpenseIcon = () => (
     <Image
-      source={require('../../assets/icons/spending-money.png')} // Adjust the path accordingly
+      source={require('../../assets/icons/payment.png')} // Adjust the path accordingly
       style={{ width: 24, height: 24 }} // Adjust the size as needed
     />
   );
 
   const SettingsIcon = () => (
     <Image
-      source={require('../../assets/icons/user-avatar.png')} // Adjust the path accordingly
+      source={require('../../assets/icons/settings.png')} // Adjust the path accordingly
       style={{ width: 24, height: 24 }} // Adjust the size as needed
+    />
+  );
+
+  const UserIcon = () => (
+    <Image
+      source={require('../../assets/icons/user.png')} // Adjust the path accordingly
+      style={{ width: 24, height: 24 }} // Adjust the size as needed
+    />
+  );
+
+  const AddExpenseIcon = () => (
+    <Image
+      source={require('../../assets/icons/AddPayment1.png')} // Adjust the path accordingly
+      style={{ width: 35, height: 35 }} // Adjust the size as needed
     />
   );
 
@@ -31,36 +46,43 @@ export default function _layout() {
      
     <Tabs screenOptions={{headerShown: false,
     tabBarStyle:{
-        backgroundColor:'#3A424D',
+        backgroundColor:customColors.primary,
         height: 70,
-        borderRadius: 15 , 
+        borderRadius: 20 , 
         top:0,
         marginTop:-10, 
-        borderBlockColor:'#252D38', 
-        
-    },
-    tabBarActiveBackgroundColor:'#86B7B8', 
+        marginBottom:20,
+        marginHorizontal: 10,
+        padding:10,
+        shadowColor:'#696969'   
+    }, 
     tabBarAllowFontScaling:true,
-    tabBarLabelStyle: {
-        color: '#FFFFFF',
-        fontWeight: "bold",
-        marginBottom: 10,
-        fontSize: 12,  
-      },}
+    }
     }>
         <Tabs.Screen name='index' 
-        options={{title:'Home',  
+        options={{title:'',  
         tabBarIcon: () => <HomeIcon />,
          }}/>
 
         <Tabs.Screen name='Expenses/index'
-        options={{title:'Expenses',
+        options={{
         tabBarIcon: () => <ExpenseIcon />,
+        title:''
+        }}/> 
+
+        <Tabs.Screen name='ManageTransaction/index'
+        options={{title:'',
+        tabBarIcon: () => <AddExpenseIcon />,
         }}/> 
 
         <Tabs.Screen name='Settings/index'
-        options={{title:'Settings',
+        options={{title:'',
         tabBarIcon: () => <SettingsIcon />,
+        }}/> 
+
+        <Tabs.Screen name='Profile/index'
+        options={{title:'',
+        tabBarIcon: () => <UserIcon />,
         }}/> 
     </Tabs>
   )

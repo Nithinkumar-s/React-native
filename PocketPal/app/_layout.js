@@ -1,7 +1,7 @@
 import { Stack } from "expo-router";
 import { View, StyleSheet } from 'react-native';
 
-export default function Rootlayout() {
+export default function Rootlayout() { 
   return  <Stack screenOptions={{headerShown: false}} >
     <Stack.Screen name="(tabs)" />
   </Stack>
@@ -9,7 +9,6 @@ export default function Rootlayout() {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#3498db', // Set your desired background color
+      flex: 1, // Set your desired background color
     },
   });
