@@ -6,7 +6,7 @@ const customColors = {
       textBlack : '#5959B2',
       textWhite: '#F2F6FE',
       accentColor : '#00C1A6',
-      selectionColor : 'FEBC59'
+      selectionColor : '#FEBC59'
   };
 
   

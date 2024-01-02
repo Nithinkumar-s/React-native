@@ -3,39 +3,68 @@ import { Tabs } from 'expo-router'
 import { Ionicons, FontAwesome5  } from '@expo/vector-icons';
 import { Image } from 'react-native';
 import customColors from '../../assets/styles/colors'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const HomeIcon = () => (
     <Image
       source={require('../../assets/icons/house.png')} // Adjust the path accordingly
-      style={{ width: 40, height: 40 }} // Adjust the size as needed
+      style={{ width: wp(6), height: hp(6) }} // Adjust the size as needed
+    />
+  );
+
+  const HomeIconFocused = () => (
+    <Image
+      source={require('../../assets/icons/housefocused.png')} // Adjust the path accordingly
+      style={{ width: wp(6), height: hp(6) }} // Adjust the size as needed
     />
   );
 
 const ExpenseIcon = () => (
     <Image
       source={require('../../assets/icons/payment.png')} // Adjust the path accordingly
-      style={{ width: 24, height: 24 }} // Adjust the size as needed
+      style={{ width: wp(7), height: hp(3) }} // Adjust the size as needed
+    />
+  );
+
+  const ExpenseIconFocused = () => (
+    <Image
+      source={require('../../assets/icons/paymentfocused.png')} // Adjust the path accordingly
+      style={{ width: wp(7), height: hp(3) }} // Adjust the size as needed
     />
   );
 
   const SettingsIcon = () => (
     <Image
       source={require('../../assets/icons/settings.png')} // Adjust the path accordingly
-      style={{ width: 24, height: 24 }} // Adjust the size as needed
+      style={{ width: wp(7), height: hp(3.5) }} // Adjust the size as needed
+    />
+  );
+
+  const SettingsIconFocused = () => (
+    <Image
+      source={require('../../assets/icons/settingsfocused.png')} // Adjust the path accordingly
+      style={{ width: wp(7), height: hp(3.5) }} // Adjust the size as needed
     />
   );
 
   const UserIcon = () => (
     <Image
       source={require('../../assets/icons/user.png')} // Adjust the path accordingly
-      style={{ width: 24, height: 24 }} // Adjust the size as needed
+      style={{ width: wp(7.8), height: hp(3.7) }} // Adjust the size as needed
     />
   );
 
   const AddExpenseIcon = () => (
     <Image
-      source={require('../../assets/icons/AddPayment1.png')} // Adjust the path accordingly
-      style={{ width: 35, height: 35 }} // Adjust the size as needed
+      source={require('../../assets/icons/AddPayment.png')} // Adjust the path accordingly
+      style={{ width: wp(9), height: hp(5) }} // Adjust the size as needed
+    />
+  );
+
+  const AddExpenseIconFocused = () => (
+    <Image
+      source={require('../../assets/icons/AddPaymentfocused.png')} // Adjust the path accordingly
+      style={{ width: wp(9), height: hp(5) }} // Adjust the size as needed
     />
   );
 
@@ -47,7 +76,7 @@ export default function _layout() {
     <Tabs screenOptions={{headerShown: false,
     tabBarStyle:{
         backgroundColor:customColors.primary,
-        height: 70,
+        height: hp(8),
         borderRadius: 20 , 
         top:0,
         marginTop:-10, 
@@ -57,27 +86,28 @@ export default function _layout() {
         shadowColor:'#696969'   
     }, 
     tabBarAllowFontScaling:true,
+    
     }
     }>
         <Tabs.Screen name='index' 
         options={{title:'',  
-        tabBarIcon: () => <HomeIcon />,
+        tabBarIcon: ({focused}) => focused ? <HomeIconFocused /> : <HomeIcon />, 
          }}/>
 
         <Tabs.Screen name='Expenses/index'
-        options={{
-        tabBarIcon: () => <ExpenseIcon />,
-        title:''
+        options={{ 
+        tabBarIcon: ({focused}) => focused ? <ExpenseIconFocused /> : <ExpenseIcon />, 
+        title:'',  
         }}/> 
 
         <Tabs.Screen name='ManageTransaction/index'
-        options={{title:'',
-        tabBarIcon: () => <AddExpenseIcon />,
+        options={{title:'', 
+        tabBarIcon: ({focused}) => focused ? <AddExpenseIconFocused /> : <AddExpenseIcon />, 
         }}/> 
 
         <Tabs.Screen name='Settings/index'
-        options={{title:'',
-        tabBarIcon: () => <SettingsIcon />,
+        options={{title:'', 
+        tabBarIcon: ({focused}) => focused ? <SettingsIconFocused /> : <SettingsIcon />, 
         }}/> 
 
         <Tabs.Screen name='Profile/index'

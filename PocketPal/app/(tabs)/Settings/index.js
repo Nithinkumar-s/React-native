@@ -1,16 +1,11 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react' 
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import customColors from '../../../assets/styles/colors';
 
 export default function Settings() {
   return (
     <View style={styles.container}>  
-      <TouchableOpacity style={styles.menu} >
-        <Image
-          source={require('../../../assets/icons/menu.png')}
-          style={{width: 35 , height: 35}}
-        />
-    </TouchableOpacity> 
     </View>
   )
 }
@@ -18,7 +13,7 @@ export default function Settings() {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#252D38', // Set your desired background color
+      backgroundColor: customColors.secondary.toString(), // Set your desired background color
     },
     menu: { 
         top: 40,
